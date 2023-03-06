@@ -1,8 +1,7 @@
 import React from 'react';
-import SearchForm from './SearchForm';
 import axios from 'axios';
-
-
+import Header from './Header';
+import Main from './Main';
 
 class App extends React.Component {
 
@@ -45,10 +44,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <SearchForm
-        searchSubmit={this.searchSubmit}
-        searchInput={this.handleSearchInput}
-      />
+      <>
+        <Header
+          searchSubmit={this.searchSubmit}
+          searchInput={this.handleSearchInput}
+        />
+        <Main 
+          data={this.state}
+        />
+      </>
     );
   }
 }
