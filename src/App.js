@@ -27,7 +27,6 @@ class App extends React.Component {
     try {
       let response = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.searchInput}&format=json`);
 
-      console.log(response.data[0]);
       this.setState({
         cityData: response.data[0],
         errorState: false,
