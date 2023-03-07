@@ -9,11 +9,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       searchInput: '',
-      display_name: '',
-      latitude: 0,
-      longitude: 0,
+      cityData: {},
       errorMessage: '',
-      cityMapUrl: '',
+      errorState: true,
     }
   }
 
@@ -27,22 +25,17 @@ class App extends React.Component {
     e.preventDefault();
 
     try {
-      let cityData = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.searchInput}&format=json`);
+      let response = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.searchInput}&format=json`);
 
+      console.log(response.data[0]);
       this.setState({
-        display_name: cityData.data[0].display_name,
-        latitude: cityData.data[0].lat,
-        longitude: cityData.data[0].lon,
-        cityMapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=13`,
-        errorMessage: '',
+        cityData: response.data[0],
+        errorState: false,
       });
 
     } catch (error) {
       this.setState({
-        display_name: '',
-        latitude: '',
-        longitude: '',
-        cityMapUrl: '',
+        errorState: true,
         errorMessage: error.message,
       });
     }
