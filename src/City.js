@@ -11,6 +11,7 @@ class City extends React.Component{
         <Card.Header as="h2">{this.props.data.display_name}</Card.Header>
         <Card.Body>
           <Image src={this.props.data.cityMapUrl}></Image>
+          <p>{this.props.data.errorMessage}</p>
         </Card.Body>
         <Card.Body>
           <p>Latitude: {this.props.data.latitude}, Longitude: {this.props.data.longitude}</p>
