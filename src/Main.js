@@ -5,11 +5,10 @@ import './css/Main.css'
 class Main extends React.Component{
 
   render() {
+
     return (
       <main>
-        <City 
-          data={this.props.data}
-        />
+        <City data={this.props.data}/>
       </main>
     );
   }

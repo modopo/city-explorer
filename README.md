@@ -4,18 +4,43 @@
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+This web application will provide releveant information about a city the user wants to explore.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+This web application uses React App, React Bootstrap and Axios, which require installation through `npm` before deployment.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+This web application takes advantage of LocationIQ API to pull map data to display.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+01-01-2001 4:59pm - Application now has a fully-functional through netlify: https://magnificent-semolina-4542c1.netlify.app/
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+
+### Time log
+
+Feature: Initial deployment to Netlify
+Estimated time: 30 mins
+Start Time: 12 PM
+Finish Time: 12:30 PM
+Actual Time: 12:30 PM
+
+Feature: City Latitude and Longitude
+Estimated time: 1 hour
+Start Time: 12:30 PM
+Finish Time: 1:30 PM
+Actual Time: 2:30 PM
+
+Feature: Generating city map
+Estimated time: 1 hour
+Start Time: 2:30 PM
+Finish Time: 3:30 PM
+Actual Time: 3 PM
+
+Feature: Generating Error
+Estimated tme: 1 hour
+Start Time: 3 PM
+End Time: 4 PM
+Actual Time: 4 PM
