@@ -11,7 +11,7 @@ class City extends React.Component{
     return (
       <Card>
         <Card.Header as="h2">{this.props.name}</Card.Header>
-        <img src={url}></img>
+        <Image src={url} />
         <Card.Body>
           <p>Latitude: {this.props.lat}, Longitude: {this.props.lon}</p>
         </Card.Body>
