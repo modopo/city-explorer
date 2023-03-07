@@ -1,13 +1,16 @@
 import React from 'react';
 import City from './City';
+import './css/Main.css'
 
 class Main extends React.Component{
 
   render() {
     return (
-      <City 
-        data={this.props.data}
-      />
+      <main>
+        <City 
+          data={this.props.data}
+        />
+      </main>
     );
   }
 
