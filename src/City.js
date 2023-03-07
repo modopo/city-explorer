@@ -6,15 +6,14 @@ import './css/City.css'
 class City extends React.Component{
 
   render() {
+    let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.lat},${this.props.lon}&zoom=13`
+    
     return (
       <Card>
-        <Card.Header as="h2">{this.props.data.display_name}</Card.Header>
+        <Card.Header as="h2">{this.props.name}</Card.Header>
+        <img src={url}></img>
         <Card.Body>
-          <Image src={this.props.data.cityMapUrl}></Image>
-          <p>{this.props.data.errorMessage}</p>
-        </Card.Body>
-        <Card.Body>
-          <p>Latitude: {this.props.data.latitude}, Longitude: {this.props.data.longitude}</p>
+          <p>Latitude: {this.props.lat}, Longitude: {this.props.lon}</p>
         </Card.Body>
       </Card>
     );
