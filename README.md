@@ -44,3 +44,6 @@ Estimated tme: 1 hour
 Start Time: 3 PM
 End Time: 4 PM
 Actual Time: 4 PM
+
+Lab 6 WRRC
+![Lab 6 WRRC](./src/img/lab_6_wrrc.png)
