@@ -13,6 +13,7 @@ class App extends React.Component {
       latitude: 0,
       longitude: 0,
       errorMessage: '',
+      cityMapUrl: '',
     }
   }
 
@@ -31,8 +32,10 @@ class App extends React.Component {
       this.setState({
         display_name: cityData.data[0].display_name,
         latitude: cityData.data[0].lat,
-        longitude: cityData.data[0].lon
+        longitude: cityData.data[0].lon,
+        cityMapUrl: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=13`
       });
+
     } catch (error) {
       console.log('error: ', error);
       console.log('error.message: ', error.message);

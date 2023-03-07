@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Image from 'react-bootstrap/Image'
+import './css/City.css'
 
 class City extends React.Component{
 
@@ -8,10 +10,10 @@ class City extends React.Component{
       <Card>
         <Card.Header as="h2">{this.props.data.display_name}</Card.Header>
         <Card.Body>
-          Latitude: {this.props.data.latitude}
+          <Image src={this.props.data.cityMapUrl}></Image>
         </Card.Body>
         <Card.Body>
-          Longitude: {this.props.data.longitude}
+          <p>Latitude: {this.props.data.latitude}, Longitude: {this.props.data.longitude}</p>
         </Card.Body>
       </Card>
     );
