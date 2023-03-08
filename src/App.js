@@ -10,8 +10,10 @@ class App extends React.Component {
     this.state = {
       searchInput: '',
       cityData: {},
+      weatherData: [],
       errorMessage: '',
-      errorState: true,
+      showError: false,
+      showCity: false,
     }
   }
 
@@ -25,17 +27,27 @@ class App extends React.Component {
     e.preventDefault();
 
     try {
-      let response = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.searchInput}&format=json`);
+      let cityResponse = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.searchInput}&format=json`);
 
       this.setState({
-        cityData: response.data[0],
-        errorState: false,
+        cityData: cityResponse.data[0],
+        showCity: true,
+        showError: false,
       });
+
+      let city = cityResponse.data[0].display_name.split(',')[0];
+
+      let weatherResponse = await (await axios.get(`${process.env.REACT_APP_SERVER}/weather?searchQuery=${city}`)).data
+
+      this.setState({
+        weatherData: weatherResponse,
+      })
 
     } catch (error) {
       this.setState({
-        errorState: true,
+        showError: true,
         errorMessage: error.message,
+        showCity: false,
       });
     }
   }
