@@ -9,7 +9,7 @@ class City extends React.Component{
     let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.lat},${this.props.lon}&zoom=13`
     
     return (
-      <Card>
+      <Card className='cityCard'>
         <Card.Header as="h2">{this.props.name}</Card.Header>
         <Image src={url} />
         <Card.Body>
