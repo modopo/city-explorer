@@ -1,7 +1,8 @@
 import React from 'react';
 import City from './City';
 import Weather from './Weather';
-import Alert from 'react-bootstrap/Alert';
+import Movies from './Movies'
+import { Container, Alert } from 'react-bootstrap';
 import './css/Main.css'
 
 class Main extends React.Component{
@@ -22,9 +23,14 @@ class Main extends React.Component{
               name={this.props.data.cityData.display_name}
               cityUrl={this.props.data}
             />
-            <Weather 
-              forecasts={this.props.data.weatherData}
-            />
+            <Container>
+              <Weather 
+                forecasts={this.props.data.weatherData}
+              />
+              <Movies 
+                movies={this.props.data.moviesData}
+              />
+            </Container>
           </>
         }
       </main>

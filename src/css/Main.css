@@ -1,6 +1,10 @@
 main {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: top;
   margin-top: 2rem;
+}
+
+.container {
+  width: 50%;
 }
