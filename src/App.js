@@ -11,6 +11,7 @@ class App extends React.Component {
       searchInput: '',
       cityData: {},
       weatherData: [],
+      moviesData: [],
       errorMessage: '',
       showError: false,
       showCity: false,
@@ -35,14 +36,18 @@ class App extends React.Component {
         showError: false,
       });
 
-      console.log(cityResponse.data[0])
-
       let coord = [cityResponse.data[0].lat, cityResponse.data[0].lon];
 
       let weatherResponse = (await axios.get(`${process.env.REACT_APP_SERVER}/weather?lat=${coord[0]}&lon=${coord[1]}`)).data
 
       this.setState({
         weatherData: weatherResponse,
+      })
+
+      let movieResponse = (await axios.get(`${process.env.REACT_APP_SERVER}/movies?search=${this.state.searchInput}`)).data
+
+      this.setState({
+        moviesData: movieResponse,
       })
 
     } catch (error) {

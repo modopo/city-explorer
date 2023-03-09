@@ -1,0 +1,18 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.poster {
+  height: 500px;
+  width: auto;
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
