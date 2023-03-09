@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Jonathan Tsai
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.3.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 This web application will provide releveant information about a city the user wants to explore.
@@ -13,7 +13,8 @@ This web application uses React App, React Bootstrap and Axios, which require in
 This web application takes advantage of LocationIQ API to pull map data to display.
 
 ## Change Log
-01-01-2001 4:59pm - Application now has a fully-functional through netlify: https://magnificent-semolina-4542c1.netlify.app/
+03-07-2023- Application now has a fully-functional through netlify: https://magnificent-semolina-4542c1.netlify.app/
+03-08-2023- Application now communicates with Weather API, and Movie API to grab forecast and movies made in the city searched
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -47,3 +48,23 @@ Actual Time: 4 PM
 
 Lab 6 WRRC
 ![Lab 6 WRRC](./src/img/lab_6_wrrc.png)
+
+Feature: Weather
+Estimated time: 1
+Start Time: 12 PM
+Finish Time: 1 PM
+Actual Time: 1:30 PM
+
+Feature: Movies
+Estimated time: 1 hour
+Start Time: 1:30 PM
+Finish Time: 2:30 PM
+Actual Time: 3:30 PM
+
+Feature: Deploying
+Estimated time: 1 hour
+Start Time: 3:30 PM
+Finish Time: 4:30 PM
+Actual Time: 5 PM
+
+![Lab 8 WRRC](./src/img/lab_08_wrrc.png)
