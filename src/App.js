@@ -35,9 +35,11 @@ class App extends React.Component {
         showError: false,
       });
 
-      let city = cityResponse.data[0].display_name.split(',')[0];
+      console.log(cityResponse.data[0])
 
-      let weatherResponse = await (await axios.get(`${process.env.REACT_APP_SERVER}/weather?searchQuery=${city}`)).data
+      let coord = [cityResponse.data[0].lat, cityResponse.data[0].lon];
+
+      let weatherResponse = (await axios.get(`${process.env.REACT_APP_SERVER}/weather?lat=${coord[0]}&lon=${coord[1]}`)).data
 
       this.setState({
         weatherData: weatherResponse,
