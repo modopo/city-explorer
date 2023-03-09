@@ -7,7 +7,7 @@ class Weather extends React.Component {
   render () {
     let daysForecast = this.props.forecasts.map((day, idx) => {
       return (
-        <Card.Text key={day.date}>{day.date}: {day.description}</Card.Text>
+        <Card.Text key={day.date}>{day.date}: Low of {day.low} C°, high of {day.high} C° with {day.description.toLowerCase()}</Card.Text>
       )
     })
 
