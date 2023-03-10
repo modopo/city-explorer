@@ -8,7 +8,6 @@ import './css/Main.css'
 class Main extends React.Component{
 
   render() {
-
     return (
       <main>
         {(this.props.data.showError) ? 
@@ -32,12 +31,10 @@ class Main extends React.Component{
               />
             </Container>
           </>
-        }
+        }   
       </main>
     );
   }
-
-
 }
 
 export default Main;

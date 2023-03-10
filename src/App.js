@@ -8,13 +8,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchInput: '',
       cityData: {},
       weatherData: [],
       moviesData: [],
+      searchInput: '',
       errorMessage: '',
       showError: false,
       showCity: false,
+      showWeather: false,
+      showMovies: false,
     }
   }
 
@@ -38,23 +40,54 @@ class App extends React.Component {
 
       let coord = [cityResponse.data[0].lat, cityResponse.data[0].lon];
 
-      let weatherResponse = (await axios.get(`${process.env.REACT_APP_SERVER}/weather?lat=${coord[0]}&lon=${coord[1]}`)).data
+      this.getWeather(coord);
 
-      this.setState({
-        weatherData: weatherResponse,
-      })
-
-      let movieResponse = (await axios.get(`${process.env.REACT_APP_SERVER}/movies?search=${this.state.searchInput}`)).data
-
-      this.setState({
-        moviesData: movieResponse,
-      })
+      this.getMovies(this.state.searchInput);
 
     } catch (error) {
       this.setState({
         showError: true,
         errorMessage: error.message,
         showCity: false,
+      });
+    }
+  }
+
+  async getWeather(coord) {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/weather?lat=${coord[0]}&lon=${coord[1]}`;
+
+      let weatherResponse = (await axios.get(url)).data;
+
+      this.setState({
+        weatherData: weatherResponse,
+        showWeather: true,
+      });
+
+    } catch (error) {
+      this.setState({
+        showError: true,
+        errorMessage: error.message,
+        showCity: false,
+      });
+    }
+  }
+
+  async getMovies(city) {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/movies?search=${city}`;
+
+      let movieResponse = (await axios.get(url)).data;
+
+      this.setState({
+        moviesData: movieResponse,
+        showMovies: true,
+      })
+    } catch (error) {
+      this.setState({
+        showError: true,
+        errorMessage: error.message,
+        showMovies: false,
       });
     }
   }
@@ -66,7 +99,7 @@ class App extends React.Component {
           searchSubmit={this.searchSubmit}
           searchInput={this.handleSearchInput}
         />
-        <Main 
+        <Main
           data={this.state}
         />
       </>
